@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NGnDF7bc1hU=",
+  "dgSpecHash": "W7EEhyYu31U=",
   "success": true,
-  "projectFilePath": "C:\\Expo\\sekurity-auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
+  "projectFilePath": "C:\\2021497\\Sekurity\\sekurity-auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hogar\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\hogar\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",

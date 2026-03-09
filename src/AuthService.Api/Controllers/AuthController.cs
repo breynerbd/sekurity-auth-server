@@ -83,21 +83,22 @@ public async Task<IActionResult> Register(RegisterRequest request)
 }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(LoginRequest request)
-    {
-        var user = await _userRepository.GetByEmailAsync(request.Email);
-        if (user == null)
-            return Unauthorized("Credenciales inválidas.");
+public async Task<IActionResult> Login(LoginRequest request)
+{
+    var user = await _userRepository.GetByEmailAsync(request.Email);
 
-        if (!BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
-            return Unauthorized("Credenciales inválidas.");
+    if (user == null)
+        return Unauthorized("Credenciales inválidas.");
 
-        var roles = await _userRepository.GetUserRolesAsync(user.Id);
+    if (!BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
+        return Unauthorized("Credenciales inválidas.");
 
-        var token = _jwtTokenGenerator.GenerateToken(user, roles);
+    var roles = await _userRepository.GetUserRolesAsync(user.Id);
 
-        return Ok(new { accessToken = token });
-    }
+    var token = _jwtTokenGenerator.GenerateToken(user, roles);
+
+    return Ok(new { accessToken = token });
+}
 
     [Authorize]
 [HttpGet("me")]
